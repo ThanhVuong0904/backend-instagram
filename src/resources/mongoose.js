@@ -9,6 +9,7 @@ module.exports = async () => {
 
         connection.on("connected", function () {
             logger.info("MongoDB::: Successfully connected to MongoDB");
+            console.log("MongoDB::: Successfully connected to MongoDB");
         });
 
         connection.on("disconnected", function () {
@@ -30,5 +31,6 @@ module.exports = async () => {
         console.log("Successfully connected to MongoDB");
     } catch (error) {
         logger.error(`MongoDB::: Error in tryCatch::: ${error}`);
+        console.log(`MongoDB::: Error in tryCatch::: ${error}`);
     }
 };
