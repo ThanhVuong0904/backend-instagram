@@ -23,6 +23,7 @@ module.exports = async () => {
         });
 
         logger.info("Successfully connected to MongoDB");
+        console.log("Successfully connected to MongoDB");
     } catch (error) {
         logger.error(`MongoDB::: Error in tryCatch::: ${error}`);
     }

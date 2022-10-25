@@ -4,12 +4,17 @@ const cloudinary = require("./cloudinary");
 const logger = require("../utils/logger");
 
 module.exports = async () => {
+    console.log(configs);
     if (configs.mongodb.uri) {
+        console.log(configs.mongodb);
         await connectMongoDB();
     }
     if (configs.cloudinary.cloudName) {
         cloudinary.connect;
         logger.info(
+            `Successfully connected to Cloudinary: ${cloudinary.connect.cloud_name}`
+        );
+        console.log(
             `Successfully connected to Cloudinary: ${cloudinary.connect.cloud_name}`
         );
     }
