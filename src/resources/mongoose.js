@@ -20,6 +20,10 @@ module.exports = async () => {
                 "MongoDB::: Connection error::::",
                 JSON.stringify(error)
             );
+            console.log(
+                "MongoDB::: Connection error::::",
+                JSON.stringify(error)
+            );
         });
 
         logger.info("Successfully connected to MongoDB");
