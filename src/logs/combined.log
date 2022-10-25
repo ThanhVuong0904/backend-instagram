@@ -1,0 +1,522 @@
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Connect database success !!!","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"MongoDB::: Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":{"_events":{"data":[null,null,null],"end":[null,null,null]},"_eventsCount":3,"_readableState":{"autoDestroy":false,"awaitDrain":0,"buffer":{"head":null,"length":0,"tail":null},"decoder":null,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"emittedReadable":false,"encoding":null,"endEmitted":false,"ended":false,"flowing":true,"highWaterMark":16,"length":0,"needReadable":true,"objectMode":true,"paused":false,"pipes":[{"_basename":"error.log","_created":0,"_dest":{"_events":{"close":[null,null],"error":[null,null]},"_eventsCount":6,"_writableState":{"afterWriteTickInfo":null,"allBuffers":true,"allNoop":true,"autoDestroy":true,"bufferProcessing":false,"buffered":[],"bufferedIndex":0,"closeEmitted":false,"closed":false,"constructed":true,"corked":0,"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"errored":null,"finalCalled":false,"finished":false,"highWaterMark":16384,"length":0,"needDrain":false,"objectMode":false,"pendingcb":0,"prefinished":false,"sync":true,"writecb":null,"writelen":0,"writing":false},"bytesWritten":0,"closed":false,"fd":4,"flags":"a","mode":438,"path":"logs\\error.log"},"_drain":false,"_ending":false,"_events":{"error":[null,null],"unpipe":[null,null]},"_eventsCount":6,"_opening":false,"_pendingSize":0,"_rotate":false,"_size":0,"_stream":{"_events":{},"_eventsCount":3,"_maxListeners":30,"_readableState":{"autoDestroy":false,"awaitDrain":0,"buffer":{"head":null,"length":0,"tail":null},"decoder":null,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"emittedReadable":false,"encoding":null,"endEmitted":false,"ended":false,"flowing":true,"highWaterMark":16384,"length":0,"needReadable":true,"objectMode":false,"paused":false,"pipes":{"_events":{"close":[null,null],"error":[null,null]},"_eventsCount":6,"_writableState":{"afterWriteTickInfo":null,"allBuffers":true,"allNoop":true,"autoDestroy":true,"bufferProcessing":false,"buffered":[],"bufferedIndex":0,"closeEmitted":false,"closed":false,"constructed":true,"corked":0,"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"errored":null,"finalCalled":false,"finished":false,"highWaterMark":16384,"length":0,"needDrain":false,"objectMode":false,"pendingcb":0,"prefinished":false,"sync":true,"writecb":null,"writelen":0,"writing":false},"bytesWritten":0,"closed":false,"fd":4,"flags":"a","mode":438,"path":"logs\\error.log"},"pipesCount":1,"readableListening":false,"reading":true,"readingMore":false,"resumeScheduled":false,"sync":false},"_transformState":{"needTransform":true,"transforming":false,"writecb":null,"writechunk":null,"writeencoding":null},"_writableState":{"autoDestroy":false,"bufferProcessing":false,"bufferedRequest":null,"bufferedRequestCount":0,"corked":0,"corkedRequestsFree":{"entry":null,"next":null},"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"finalCalled":false,"finished":false,"highWaterMark":16384,"lastBufferedRequest":null,"length":0,"needDrain":false,"objectMode":false,"pendingcb":0,"prefinished":false,"sync":true,"writecb":null,"writelen":0,"writing":false},"allowHalfOpen":true,"readable":true,"writable":true},"_writableState":{"autoDestroy":false,"bufferProcessing":false,"bufferedRequest":null,"bufferedRequestCount":0,"corked":0,"corkedRequestsFree":{"entry":null,"next":null},"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"finalCalled":false,"finished":false,"highWaterMark":16,"lastBufferedRequest":null,"length":0,"needDrain":false,"objectMode":true,"pendingcb":0,"prefinished":false,"sync":false,"writecb":null,"writelen":0,"writing":false},"dirname":"./logs","eol":"\r\n","filename":"error.log","level":"error","levels":{"debug":5,"error":0,"http":3,"info":2,"silly":6,"verbose":4,"warn":1},"maxFiles":null,"maxsize":null,"name":"file","options":{"flags":"a"},"parent":"[Circular]","rotationFormat":false,"tailable":false,"writable":true,"zippedArchive":false},{"_basename":"combined.log","_created":0,"_dest":{"_events":{"close":[null,null],"error":[null,null]},"_eventsCount":6,"_writableState":{"afterWriteTickInfo":null,"allBuffers":true,"allNoop":true,"autoDestroy":true,"bufferProcessing":false,"buffered":[],"bufferedIndex":0,"closeEmitted":false,"closed":false,"constructed":true,"corked":0,"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"errored":null,"finalCalled":false,"finished":false,"highWaterMark":16384,"length":100,"needDrain":false,"objectMode":false,"pendingcb":1,"prefinished":false,"sync":false,"writelen":100,"writing":true},"bytesWritten":119,"closed":false,"fd":5,"flags":"a","mode":438,"path":"logs\\combined.log"},"_drain":false,"_ending":false,"_events":{"error":[null,null],"unpipe":[null,null]},"_eventsCount":6,"_opening":false,"_pendingSize":100,"_rotate":false,"_size":441,"_stream":{"_events":{},"_eventsCount":3,"_maxListeners":30,"_readableState":{"autoDestroy":false,"awaitDrain":0,"buffer":{"head":null,"length":0,"tail":null},"decoder":null,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"emittedReadable":false,"encoding":null,"endEmitted":false,"ended":false,"flowing":true,"highWaterMark":16384,"length":0,"needReadable":true,"objectMode":false,"paused":false,"pipes":{"_events":{"close":[null,null],"error":[null,null]},"_eventsCount":6,"_writableState":{"afterWriteTickInfo":null,"allBuffers":true,"allNoop":true,"autoDestroy":true,"bufferProcessing":false,"buffered":[],"bufferedIndex":0,"closeEmitted":false,"closed":false,"constructed":true,"corked":0,"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"errored":null,"finalCalled":false,"finished":false,"highWaterMark":16384,"length":100,"needDrain":false,"objectMode":false,"pendingcb":1,"prefinished":false,"sync":false,"writelen":100,"writing":true},"bytesWritten":119,"closed":false,"fd":5,"flags":"a","mode":438,"path":"logs\\combined.log"},"pipesCount":1,"readableListening":false,"reading":false,"readingMore":true,"resumeScheduled":false,"sync":false},"_transformState":{"needTransform":true,"transforming":false,"writecb":null,"writechunk":null,"writeencoding":"buffer"},"_writableState":{"autoDestroy":false,"bufferProcessing":false,"bufferedRequest":null,"bufferedRequestCount":0,"corked":0,"corkedRequestsFree":{"entry":null,"next":null},"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"finalCalled":false,"finished":false,"highWaterMark":16384,"lastBufferedRequest":null,"length":0,"needDrain":false,"objectMode":false,"pendingcb":1,"prefinished":false,"sync":false,"writecb":null,"writelen":0,"writing":false},"allowHalfOpen":true,"readable":true,"writable":true},"_writableState":{"autoDestroy":false,"bufferProcessing":false,"bufferedRequest":null,"bufferedRequestCount":0,"corked":0,"corkedRequestsFree":{"entry":null,"next":null},"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"finalCalled":false,"finished":false,"highWaterMark":16,"lastBufferedRequest":null,"length":0,"needDrain":false,"objectMode":true,"pendingcb":1,"prefinished":false,"sync":false,"writecb":null,"writelen":0,"writing":false},"dirname":"./logs","eol":"\r\n","filename":"combined.log","levels":{"debug":5,"error":0,"http":3,"info":2,"silly":6,"verbose":4,"warn":1},"maxFiles":null,"maxsize":null,"name":"file","options":{"flags":"a"},"parent":"[Circular]","rotationFormat":false,"tailable":false,"writable":true,"zippedArchive":false},{"_events":{"error":[null,null],"unpipe":[null,null]},"_eventsCount":6,"_maxListeners":30,"_writableState":{"autoDestroy":false,"bufferProcessing":false,"bufferedRequest":null,"bufferedRequestCount":0,"corked":0,"corkedRequestsFree":{"entry":null,"next":null},"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"finalCalled":false,"finished":false,"highWaterMark":16,"lastBufferedRequest":null,"length":0,"needDrain":false,"objectMode":true,"pendingcb":1,"prefinished":false,"sync":false,"writecb":null,"writelen":0,"writing":false},"consoleWarnLevels":{},"eol":"\r\n","format":{"options":{}},"levels":{"debug":5,"error":0,"http":3,"info":2,"silly":6,"verbose":4,"warn":1},"name":"console","parent":"[Circular]","stderrLevels":{},"writable":true}],"pipesCount":3,"readableListening":false,"reading":false,"readingMore":true,"resumeScheduled":false,"sync":false},"_transformState":{"needTransform":true,"transforming":true,"writechunk":"[Circular]","writeencoding":"utf8"},"_writableState":{"autoDestroy":false,"bufferProcessing":false,"bufferedRequest":null,"bufferedRequestCount":0,"corked":0,"corkedRequestsFree":{"entry":null,"next":null},"decodeStrings":true,"defaultEncoding":"utf8","destroyed":false,"emitClose":true,"ended":false,"ending":false,"errorEmitted":false,"finalCalled":false,"finished":false,"highWaterMark":16,"lastBufferedRequest":null,"length":1,"needDrain":false,"objectMode":true,"pendingcb":1,"prefinished":false,"sync":true,"writelen":1,"writing":true},"allowHalfOpen":true,"defaultMeta":{"service":"user-service"},"exceptions":{"handlers":{},"logger":"[Circular]"},"exitOnError":true,"format":{"options":{}},"level":"info","levels":{"debug":5,"error":0,"http":3,"info":2,"silly":6,"verbose":4,"warn":1},"profilers":{},"readable":true,"rejections":{"handlers":{},"logger":"[Circular]"},"writable":true},"service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"MongoDB::: Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:undefined","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"error","message":"MongoDB::: Error in tryCatch::: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"MongoDB::: Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"Successfully connected to Cloudinary: debkio0dv","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
