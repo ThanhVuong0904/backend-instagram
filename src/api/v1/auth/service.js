@@ -1,6 +1,6 @@
 const Validation = require("../../../helpers/validation");
 const User = require("../../../model/User");
-const Follow = require("../../../model/Follow");
+
 const createError = require("http-errors");
 const jwt = require("../../../helpers/jsonwebtoken");
 const cloudinary = require("../../../utils/cloudinary");
@@ -54,11 +54,7 @@ const register = async (req, res, next) => {
         //Not response password
         const user = await newUser.save();
         const { password: hashPassword, ...params } = user._doc;
-        const newFollow = new Follow({
-            userId: user._id,
-            followId: "6358dc1d3c130b065bfb4c33", //follow ad min
-        });
-        await newFollow.save();
+
         const token = await jwt.sign({
             userId: user._id,
             email: user.email,
