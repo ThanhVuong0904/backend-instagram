@@ -16,7 +16,17 @@ const getPosts = async (req, next) => {
             return next(createError(422, "The type field is required."));
         }
         if (type === "forYou") {
-            const posts = await Post.find({ userId: { $ne: userId } }) // Loại các post của mình ra
+            const followed = await Follow.find({
+                userId: req.payload.userId,
+            }).select("followId");
+
+            const arrayFollowId = followed.map((item) =>
+                item.followId.toString()
+            );
+
+            const posts = await Post.find({
+                userId: { $nin: [...arrayFollowId, userId] },
+            }) // Loại các post của mình và những người đã follow
                 .populate("userId", "-password")
                 .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
                 .limit(perPage)
@@ -42,8 +52,9 @@ const getPosts = async (req, next) => {
                 };
                 return newResult;
             });
+
             const count = await Post.count({
-                userId: { $ne: ObjectId(userId) },
+                userId: { $nin: [...arrayFollowId, userId] },
             });
             // const post = await Post.aggregate([
             //     { $match: { userId: { $ne: ObjectId(userId) } } }, // Loại các post của mình ra
@@ -367,8 +378,6 @@ const getPost = async (req, next) => {
                         tick: 1,
                         followingsCount: 1,
                         followersCount: 1,
-                        // isFollow: "$isFollow",
-                        // isMe: "$isMe",
                     },
                 },
             },

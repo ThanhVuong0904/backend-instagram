@@ -54,7 +54,7 @@ const getFollowing = async (req, res, next) => {
 
         const result = await Follow.find({ userId })
             .select("followId")
-            .populate("followId", "fullName nickname avatar tick");
+            .populate("followId", "-password");
 
         const newResult = result.map((data) => data.followId);
 
@@ -77,7 +77,7 @@ const getFollower = async (req, res, next) => {
         const page = req.query.page || 1;
         const result = await Follow.find({ followId: userId })
             .select("userId")
-            .populate("userId", "fullName nickname avatar tick");
+            .populate("userId", "-password");
 
         const newResult = result.map((data) => data.userId);
 
