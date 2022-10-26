@@ -16,127 +16,161 @@ const getPosts = async (req, next) => {
             return next(createError(422, "The type field is required."));
         }
         if (type === "forYou") {
-            // const posts = await Post.find({ userId: { $ne: userId } }) // Loại các post của mình ra
-            //     .populate("userId", "username tick avatar")
-            //     .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
-            //     .limit(perPage)
-            //     .sort({ createdAt: -1 });
+            const posts = await Post.find({ userId: { $ne: userId } }) // Loại các post của mình ra
+                .populate("userId", "-password")
+                .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+                .limit(perPage)
+                .sort({ createdAt: -1 });
 
-            // const reaction = await PostReaction.find({ userId });
-
-            // const result = posts.map((post) => {
-            //     console.log("post", post);
-            //     const { userId: user, ...others } = post._doc;
-            //     const isReaction = reaction.find((item) => {
-            //         return item.postId.toString() === post._id.toString();
-            //     });
-            //     const newResult = {
-            //         ...others,
-            //         user,
-            //         isReaction: isReaction ? true : false,
-            //     };
-            //     return newResult;
-            // });
+            const reaction = await PostReaction.find({ userId });
+            const follow = await Follow.find({ userId });
+            const result = posts.map((post) => {
+                const { userId: user, ...others } = post._doc;
+                const isReaction = reaction.find((item) => {
+                    return item.postId.toString() === post._id.toString();
+                });
+                const isFollow = follow.find((item) => {
+                    return item.followId.toString() === user._id.toString();
+                });
+                const newResult = {
+                    ...others,
+                    user: {
+                        ...user._doc,
+                        isFollow: isFollow ? true : false,
+                    },
+                    isReaction: isReaction ? true : false,
+                };
+                return newResult;
+            });
             const count = await Post.count({
                 userId: { $ne: ObjectId(userId) },
             });
-            const post = await Post.aggregate([
-                { $match: { userId: { $ne: ObjectId(userId) } } }, // Loại các post của mình ra
-                {
-                    $lookup: {
-                        from: "users",
-                        localField: "userId",
-                        foreignField: "_id",
-                        as: "user",
-                    },
-                },
-                {
-                    $lookup: {
-                        from: "postreactions",
-                        localField: "_id",
-                        foreignField: "postId",
-                        as: "post_reaction",
-                    },
-                },
-                {
-                    $lookup: {
-                        from: "follows",
-                        localField: "userId",
-                        foreignField: "followId",
-                        as: "isFollow",
-                    },
-                },
-                {
-                    $unwind: {
-                        path: "$post_reaction",
-                        preserveNullAndEmptyArrays: true,
-                    }, //Lookup return array => convert array to object
-                },
-                {
-                    $unwind: {
-                        path: "$isFollow",
-                        preserveNullAndEmptyArrays: true,
-                    },
-                },
-                { $unwind: "$user" },
+            // const post = await Post.aggregate([
+            //     { $match: { userId: { $ne: ObjectId(userId) } } }, // Loại các post của mình ra
+            //     {
+            //         $lookup: {
+            //             from: "users",
+            //             localField: "userId",
+            //             foreignField: "_id",
+            //             as: "user",
+            //         },
+            //     },
+            //     {
+            //         $lookup: {
+            //             from: "postreactions",
+            //             localField: "_id",
+            //             foreignField: "postId",
+            //             as: "post_reaction",
+            //         },
+            //     },
+            //     // {
+            //     //     $lookup: {
+            //     //         from: "follows",
+            //     //         localField: "userId", //người sở hữu post này
+            //     //         foreignField: "followId",
+            //     //         as: "isFollow",
+            //     //     },
+            //     // },
+            //     //FollowId: 6358dc1d3c130b065bfb4c33 (admin)
+            //     //UserId: 6358fcb94b62575f7d1433ee (jennie)
+            //     // => jennie following admin
+            //     {
+            //         $unwind: {
+            //             path: "$post_reaction",
+            //             preserveNullAndEmptyArrays: true,
+            //         }, //Lookup return array => convert array to object
+            //     },
+            //     // {
+            //     //     $unwind: {
+            //     //         path: "$isFollow",
+            //     //         preserveNullAndEmptyArrays: true,
+            //     //     },
+            //     // },
+            //     { $unwind: "$user" },
 
-                {
-                    $addFields: {
-                        isReaction: {
-                            $cond: {
-                                if: {
-                                    $eq: [
-                                        "$post_reaction.userId",
-                                        ObjectId(userId),
-                                    ],
-                                },
-                                then: true,
-                                else: false,
-                            },
-                        },
-                    },
-                },
-                {
-                    $addFields: {
-                        isFollow: {
-                            $cond: {
-                                if: {
-                                    $eq: ["$isFollow.userId", ObjectId(userId)],
-                                },
-                                then: true,
-                                else: false,
-                            },
-                        },
-                    },
-                },
-                {
-                    $project: {
-                        _id: 1,
-                        description: 1,
-                        postAssets: 1,
-                        likesCount: 1,
-                        commentsCount: 1,
-                        shareCounts: 1,
-                        isReaction: 1,
-                        createdAt: 1,
-                        user: {
-                            _id: 1,
-                            username: 1,
-                            avatar: 1,
-                            tick: 1,
-                            followingsCount: 1,
-                            followersCount: 1,
-                            isFollow: "$isFollow",
-                        },
-                    },
-                },
-                { $skip: perPage * page - perPage },
-                { $limit: Number(perPage) },
-                { $sort: { createdAt: -1 } },
-            ]);
+            //     {
+            //         $addFields: {
+            //             isReaction: {
+            //                 $cond: {
+            //                     if: {
+            //                         $eq: [
+            //                             "$post_reaction.userId",
+            //                             ObjectId(userId),
+            //                         ],
+            //                     },
+            //                     then: true,
+            //                     else: false,
+            //                 },
+            //             },
+            //         },
+            //     },
+            //     // {
+            //     //     $addFields: {
+            //     //         isFollow: {
+            //     //             $cond: {
+            //     //                 if: {
+            //     //                     $eq: [
+            //     //                         "$isFollow.followId",
+            //     //                         ObjectId(userId),
+            //     //                     ],
+            //     //                     //FollowId: 6358dc1d3c130b065bfb4c33 (admin)
+            //     //                     //UserId: 6358fcb94b62575f7d1433ee (jennie)
+            //     //                     // => jennie following admin
+            //     //                 },
+            //     //                 then: true,
+            //     //                 else: false,
+            //     //             },
+            //     //         },
+            //     //     },
+            //     // },
+            //     {
+            //         $project: {
+            //             _id: 1,
+            //             description: 1,
+            //             postAssets: 1,
+            //             likesCount: 1,
+            //             commentsCount: 1,
+            //             shareCounts: 1,
+            //             isReaction: 1,
+            //             createdAt: 1,
+            //             user: {
+            //                 _id: 1,
+            //                 username: 1,
+            //                 avatar: 1,
+            //                 tick: 1,
+            //                 followingsCount: 1,
+            //                 followersCount: 1,
+            //                 // isFollow: "$isFollow",
+            //             },
+            //         },
+            //     },
+            //     { $skip: perPage * page - perPage },
+            //     { $limit: Number(perPage) },
+            //     { $sort: { createdAt: -1 } },
+            // ]);
 
+            // const result = post.map(async (item) => {
+            //     const isFollow = await Follow.findOne({
+            //         followId: item.user._id,
+            //         userId,
+            //         //FollowId: 6358dc1d3c130b065bfb4c33 (admin)
+            //         //UserId: 6358fcb94b62575f7d1433ee (jennie)
+            //         // => jennie following admin
+            //     });
+            //     const newResult = {
+            //         ...item,
+            //         user: {
+            //             ...item.user,
+            //             isFollow: isFollow ? true : false,
+            //         },
+            //     };
+            //     // console.log("new", newResult);
+            //     return newResult;
+            // });
+
+            // console.log("result", await result);
             return {
-                data: post,
+                data: result,
                 total: count,
                 totalPages: Math.ceil(count / perPage),
                 currentPage: page,
@@ -245,7 +279,6 @@ const getPost = async (req, next) => {
     try {
         const { userId } = req.payload;
         const { postId } = req.params;
-        console.log("userId", userId);
         const post = await Post.aggregate([
             { $match: { _id: ObjectId(postId) } },
             {
@@ -264,26 +297,26 @@ const getPost = async (req, next) => {
                     as: "post_reaction",
                 },
             },
-            {
-                $lookup: {
-                    from: "follows",
-                    localField: "userId",
-                    foreignField: "followId",
-                    as: "isFollow",
-                },
-            },
+            // {
+            //     $lookup: {
+            //         from: "follows",
+            //         localField: "userId",
+            //         foreignField: "followId",
+            //         as: "isFollow",
+            //     },
+            // },
             {
                 $unwind: {
                     path: "$post_reaction",
                     preserveNullAndEmptyArrays: true,
                 },
             },
-            {
-                $unwind: {
-                    path: "$isFollow",
-                    preserveNullAndEmptyArrays: true,
-                },
-            },
+            // {
+            //     $unwind: {
+            //         path: "$isFollow",
+            //         preserveNullAndEmptyArrays: true,
+            //     },
+            // },
             { $unwind: "$user" },
 
             {
@@ -302,20 +335,20 @@ const getPost = async (req, next) => {
                     },
                 },
             },
-            {
-                $addFields: {
-                    isFollow: {
-                        $cond: {
-                            if: {
-                                $eq: ["$isFollow.userId", ObjectId(userId)],
-                                $eq: ["$user._id", ObjectId(userId)], //check xem có phải là mình ko
-                            },
-                            then: true,
-                            else: false,
-                        },
-                    },
-                },
-            },
+            // {
+            //     $addFields: {
+            //         isFollow: {
+            //             $cond: {
+            //                 if: {
+            //                     $eq: ["$isFollow.userId", ObjectId(userId)],
+            //                     $eq: ["$user._id", ObjectId(userId)], //check xem có phải là mình ko
+            //                 },
+            //                 then: true,
+            //                 else: false,
+            //             },
+            //         },
+            //     },
+            // },
 
             {
                 $project: {
@@ -334,15 +367,28 @@ const getPost = async (req, next) => {
                         tick: 1,
                         followingsCount: 1,
                         followersCount: 1,
-                        isFollow: "$isFollow",
+                        // isFollow: "$isFollow",
                         // isMe: "$isMe",
                     },
                 },
             },
         ]);
+        const follow = await Follow.find({ userId });
 
+        const result = post.map((item) => {
+            const isFollow = follow.find((follow) => {
+                return follow.followId.toString() === item.user._id.toString();
+            });
+            return {
+                ...item,
+                user: {
+                    ...item.user,
+                    isFollow: isFollow ? true : false,
+                },
+            };
+        });
         return {
-            data: post[0],
+            data: result[0],
         };
     } catch (error) {
         next(error);

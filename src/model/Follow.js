@@ -9,8 +9,9 @@ const FollowSchema = new Schema(
             ref: "User",
         }, // As A
         userId: { type: Schema.Types.ObjectId, required: true, ref: "User" }, // As B => B is following A
-
-        // 6328c3e40b57259114f888a0(Lisa) follow thang 6327e22dfb5675d0cda5079c(Jennie)
+        //FollowId: 6358dc1d3c130b065bfb4c33 (admin)
+        //UserId: 6358fcb94b62575f7d1433ee (jennie)
+        // => jennie following admin
     },
     { timestamps: true }
 );
