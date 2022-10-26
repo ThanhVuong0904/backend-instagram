@@ -56,7 +56,7 @@ const register = async (req, res, next) => {
         const { password: hashPassword, ...params } = user._doc;
         const newFollow = new Follow({
             userId: user._id,
-            followId: "6327e22dfb5675d0cda5079c", //follow jennie
+            followId: "6358dc1d3c130b065bfb4c33", //follow ad min
         });
         await newFollow.save();
         const token = await jwt.sign({
