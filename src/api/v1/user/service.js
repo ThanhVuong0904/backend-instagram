@@ -48,13 +48,15 @@ const getUser = async (req, next) => {
 //Tìm những người mình theo dõi
 const getFollowing = async (req, res, next) => {
     try {
-        const { userId } = req.payload;
+        const { userId } = req.params;
         const perPage = req.query.perPage || 10; // số lượng sản phẩm xuất hiện trên 1 page
         const page = req.query.page || 1;
 
         const result = await Follow.find({ userId })
             .select("followId")
-            .populate("followId", "-password");
+            .populate("followId", "-password")
+            .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+            .limit(perPage);
 
         const newResult = result.map((data) => data.followId);
 
@@ -72,12 +74,14 @@ const getFollowing = async (req, res, next) => {
 //Tìm những người follow mình
 const getFollower = async (req, res, next) => {
     try {
-        const { userId } = req.payload;
+        const { userId } = req.params;
         const perPage = req.query.perPage || 10; // số lượng sản phẩm xuất hiện trên 1 page
         const page = req.query.page || 1;
         const result = await Follow.find({ followId: userId })
             .select("userId")
-            .populate("userId", "-password");
+            .populate("userId", "-password")
+            .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+            .limit(perPage);
 
         const newResult = result.map((data) => data.userId);
 
