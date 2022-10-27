@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const User = require("../../../model/User");
 const Follow = require("../../../model/Follow");
 const createError = require("http-errors");
@@ -49,9 +50,41 @@ const getUser = async (req, next) => {
 const getFollowing = async (req, res, next) => {
     try {
         const { userId } = req.params;
+        const { userId: currentUser } = req.payload;
         const perPage = req.query.perPage || 10; // số lượng sản phẩm xuất hiện trên 1 page
         const page = req.query.page || 1;
+        const count = await Follow.find({ userId }).count();
+        console.log({ userId }), console.log({ currentUser });
+        if (userId !== currentUser) {
+            const result = await Follow.find({ userId })
+                .select("followId")
+                .populate("followId", "-password")
+                .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+                .limit(perPage);
 
+            const newResult = await Promise.all(
+                result.map(async (data) => {
+                    const isFollow = await Follow.findOne({
+                        userId: currentUser,
+                        followId: data.followId._id,
+                    });
+                    return {
+                        ...data.followId._doc,
+                        isFollow: isFollow ? true : false,
+                        isMe:
+                            currentUser === data.followId._id.toString() &&
+                            true,
+                    };
+                })
+            );
+            return {
+                data: newResult,
+                perPage,
+                total: count,
+                currentPage: page,
+                totalPages: Math.ceil(count / perPage),
+            };
+        }
         const result = await Follow.find({ userId })
             .select("followId")
             .populate("followId", "-password")
@@ -63,8 +96,9 @@ const getFollowing = async (req, res, next) => {
         return {
             data: newResult,
             perPage,
+            total: count,
             currentPage: page,
-            totalPages: Math.ceil(result.length / perPage),
+            totalPages: Math.ceil(count / perPage),
         };
     } catch (error) {
         next(error);
@@ -75,8 +109,43 @@ const getFollowing = async (req, res, next) => {
 const getFollower = async (req, res, next) => {
     try {
         const { userId } = req.params;
+        const { userId: currentUser } = req.payload;
+
         const perPage = req.query.perPage || 10; // số lượng sản phẩm xuất hiện trên 1 page
         const page = req.query.page || 1;
+
+        const count = await Follow.find({ followId: userId }).count();
+        if (userId !== currentUser) {
+            const result = await Follow.find({ followId: userId })
+                .select("userId")
+                .populate("userId", "-password")
+                .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+                .limit(perPage);
+
+            const newResult = await Promise.all(
+                result.map(async (data) => {
+                    const isFollow = await Follow.findOne({
+                        followId: data.userId._id,
+                        userId: currentUser,
+                    });
+                    return {
+                        ...data.userId._doc,
+                        isFollow: isFollow ? true : false,
+                        isMe:
+                            currentUser === data.userId._id.toString() && true,
+                    };
+                })
+            );
+
+            return {
+                data: newResult,
+                total: count,
+                perPage,
+                currentPage: page,
+                totalPages: Math.ceil(count / perPage),
+            };
+        }
+
         const result = await Follow.find({ followId: userId })
             .select("userId")
             .populate("userId", "-password")
@@ -87,9 +156,10 @@ const getFollower = async (req, res, next) => {
 
         return {
             data: newResult,
+            total: count,
             perPage,
             currentPage: page,
-            totalPages: Math.ceil(result.length / perPage),
+            totalPages: Math.ceil(count / perPage),
         };
     } catch (error) {
         next(error);

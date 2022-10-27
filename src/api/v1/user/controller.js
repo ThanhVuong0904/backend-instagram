@@ -15,7 +15,8 @@ const getFollowing = async (req, res, next) => {
     const pagination = new Pagination(
         result.perPage,
         result.currentPage,
-        result.totalPages
+        result.totalPages,
+        result.total
     );
     if (result) new ApiResponse(result.data, { pagination }).send(res);
 };
@@ -24,7 +25,8 @@ const getFollower = async (req, res, next) => {
     const pagination = new Pagination(
         result.perPage,
         result.currentPage,
-        result.totalPages
+        result.totalPages,
+        result.total
     );
     if (result) new ApiResponse(result.data, { pagination }).send(res);
 };
