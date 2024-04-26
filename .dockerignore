@@ -1,0 +1,13 @@
+docker-compose.env
+docker-compose.yml
+Dockerfile
+node_modules
+test
+.git
+.gitignore
+.env
+.env.example
+.idea
+.vscode
+.env
+.DS_Store

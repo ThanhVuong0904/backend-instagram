@@ -9,17 +9,24 @@ const createError = require("http-errors");
 const initializeResources = require("./resources");
 const errorHandler = require("./midlewares/errorHandle");
 const logger = require("./utils/logger");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 
 const routes = require("./api");
 
-app.use(morgan("combined"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(morgan("tiny"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+// app.use(express.json());
+app.use(fileUpload({
+    limits: { fileSize: 50 * 1024 * 1024 },
+    useTempFiles: true,
+    tempFileDir: '/tmp/'
+}));
 app.use(routes);
+
 
 //Handle route
 app.use((req, res, next) => {
@@ -33,7 +40,7 @@ app.use((req, res, next) => {
 app.use(errorHandler);
 
 const PORT = configs.port || 8000;
-const listen = async () => {
+const createServer = async () => {
     await initializeResources();
     app.listen(PORT, () => {
         logger.info(`=================================`);
@@ -47,4 +54,7 @@ const listen = async () => {
     });
 };
 
-listen();
+// listen();
+module.exports = {
+    createServer,
+};
