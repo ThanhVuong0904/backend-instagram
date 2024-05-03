@@ -17,27 +17,41 @@ const bulkInsert = async (req, res, next) => {
     const sheetName = workBook.SheetNames[1]
     const data = xlsx.utils.sheet_to_json(workBook.Sheets[sheetName])
     let users = []
+    const mapDate = {
+        45327: new Date(2024, 04, 02),
+        45356: new Date(2024, 04, 03),
+        45448: new Date(2024, 04, 06),
+        45478: new Date(2024, 04, 07),
+        45509: new Date(2024, 04, 08),
+        45540: new Date(2024, 04, 09),
+        45570: new Date(2024, 04, 10)
+    }
     for (let i = 0; i < data.length; i++) {
         let { PhoneNumber, FullName, ContactDate } = data[i]
         // console.log({ FullName, ContactDate })
         // Split the date string by '/'
-        const parts = ContactDate.split('/');
-        // Extract day, month, and year components
-        let day, month, year;
-        if (parts[0].length === 1) {
-            // If the day has a single digit, prepend "0" to make it two digits
-            day = "0" + parts[0];
-        } else {
-            day = parts[0];
-        }
-        month = parts[1]; // Month doesn't need formatting
-        year = parts[2]; // Year doesn't need formatting
+        // const parts = ContactDate.split('/');
+        // // Extract day, month, and year components
+        // let day, month, year;
+        // if (parts[0].length === 1) {
+        //     // If the day has a single digit, prepend "0" to make it two digits
+        //     day = "0" + parts[0];
+        // } else {
+        //     day = parts[0];
+        // }
+        // month = parts[1]; // Month doesn't need formatting
+        // year = parts[2]; // Year doesn't need formatting
 
-        // Format the date string as "DD MM YYYY"
-        const formattedDate = `${day}/${month}/${year}`;
-        var dateMomentObject = moment(ContactDate, "DD/MM/YYYY");
-        // dateMomentObject.add(1, "days")
-        var dateObject = dateMomentObject.toDate();
+        // // Format the date string as "DD MM YYYY"
+        // const formattedDate = `${day}/${month}/${year}`;
+        var dateObject = new Date()
+        if (mapDate[ContactDate] !== undefined) {
+            dateObject = mapDate[ContactDate]
+        } else {
+            var dateMomentObject = moment(ContactDate, "DD/MM/YYYY");
+            // dateMomentObject.add(1, "days")
+            dateObject = dateMomentObject.toDate();
+        }
         const newPhoneNumber = "0" + PhoneNumber
 
         const { name, code } = detectNetwork(newPhoneNumber)

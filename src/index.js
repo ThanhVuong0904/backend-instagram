@@ -27,6 +27,10 @@ app.use(fileUpload({
 }));
 app.use(routes);
 
+app.use("health", (req, res, next) => {
+    res.status(200).json({ message: "OK" });
+});
+
 
 //Handle route
 app.use((req, res, next) => {
