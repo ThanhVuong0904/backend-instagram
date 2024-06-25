@@ -1,5 +1,7 @@
 const Validation = require("../../../helpers/validation");
 const User = require("../../../model/User");
+const UserSession = require("../../../model/UserSession");
+const { v4: uuidv4 } = require('uuid');
 
 const createError = require("http-errors");
 const jwt = require("../../../helpers/jsonwebtoken");
@@ -7,6 +9,8 @@ const cloudinary = require("../../../utils/cloudinary");
 
 const login = async (req, res, next) => {
     const { email, password } = req.body;
+    const deviceInfo = req.header("m-device-info");
+    console.log(deviceInfo)
     const { error, value, warning } = Validation.userBodyRegister(req.body);
 
     try {
@@ -23,10 +27,27 @@ const login = async (req, res, next) => {
             throw next(createError.Forbidden("Username or password is wrong"));
         }
 
+        const userSessionCount = await UserSession.count({
+            user_id: user._id.toHexString(),
+        });
+        if (userSessionCount >= 1) {
+            throw next(createError(409, "User max login 1 device"));
+        }
+        const sId = uuidv4()
+
+        await UserSession.insertMany({
+            user_id: user._id,
+            session_id: sId,
+            device_info: deviceInfo,
+        })
+
+
         const { password: hashPassword, ...params } = user._doc;
+
         const token = await jwt.sign({
             userId: user._id,
             email: user.email,
+            sId: sId
         });
         return { data: params, token };
     } catch (error) {
