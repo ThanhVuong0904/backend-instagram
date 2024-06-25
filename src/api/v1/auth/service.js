@@ -1,5 +1,5 @@
 const Validation = require("../../../helpers/validation");
-const User = require("../../../model/Customer");
+const User = require("../../../model/User");
 
 const createError = require("http-errors");
 const jwt = require("../../../helpers/jsonwebtoken");
