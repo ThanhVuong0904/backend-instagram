@@ -6,12 +6,14 @@ const multer = require("../../../midlewares/multer");
 const {
     getCurrentUser,
     login,
+    logout,
     register,
     updateCurrentUser,
 } = require("./controller");
 
 router.get("/me", verifyToken, getCurrentUser);
 router.post("/login", login);
+router.post("/logout", verifyToken, logout);
 router.post("/register", register);
 router.patch(
     "/me",

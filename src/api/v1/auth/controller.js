@@ -21,9 +21,15 @@ const getCurrentUser = async (req, res, next) => {
     if (result) new ApiResponse(result.data).send(res);
 };
 
+const logout = async (req, res, next) => {
+    const result = await service.logout(req, res, next);
+    if (result) new ApiResponse(result.data, { token: result.token }).send(res);
+};
+
 module.exports = {
     login,
     register,
+    logout,
     updateCurrentUser,
     getCurrentUser,
 };

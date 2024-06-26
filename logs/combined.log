@@ -4635,3 +4635,7 @@
 {"level":"info","message":"=================================","service":"user-service"}
 {"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
 {"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"Successfully connected to MongoDB","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}
+{"level":"info","message":"🚀 ⚡️[server]: Server is running at http://localhost:8000","service":"user-service"}
+{"level":"info","message":"=================================","service":"user-service"}

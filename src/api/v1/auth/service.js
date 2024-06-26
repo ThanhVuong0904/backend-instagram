@@ -119,8 +119,22 @@ const getCurrentUser = async (req, res, next) => {
     }
 };
 
+const logout = async (req, res, next) => { 
+    try {
+        const { userId, sId } = req.payload;
+        await UserSession.deleteMany({
+            user_id: userId,
+            session_id: sId,
+        });
+        return { data: {} };
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     login,
+    logout,
     register,
     updateCurrentUser,
     getCurrentUser,
