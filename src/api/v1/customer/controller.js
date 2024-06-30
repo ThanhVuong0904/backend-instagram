@@ -17,15 +17,15 @@ const bulkInsert = async (req, res, next) => {
     const sheetName = workBook.SheetNames[1]
     const data = xlsx.utils.sheet_to_json(workBook.Sheets[sheetName])
     let users = []
-    const mapDate = {
-        45327: new Date(2024, 04, 02),
-        45356: new Date(2024, 04, 03),
-        45448: new Date(2024, 04, 06),
-        45478: new Date(2024, 04, 07),
-        45509: new Date(2024, 04, 08),
-        45540: new Date(2024, 04, 09),
-        45570: new Date(2024, 04, 10)
-    }
+    // const mapDate = {
+    //     45327: new Date(2024, 04, 02),
+    //     45356: new Date(2024, 04, 03),
+    //     45448: new Date(2024, 04, 06),
+    //     45478: new Date(2024, 04, 07),
+    //     45509: new Date(2024, 04, 08),
+    //     45540: new Date(2024, 04, 09),
+    //     45570: new Date(2024, 04, 10)
+    // }
     for (let i = 0; i < data.length; i++) {
         let { PhoneNumber, FullName, ContactDate } = data[i]
         // console.log({ FullName, ContactDate })

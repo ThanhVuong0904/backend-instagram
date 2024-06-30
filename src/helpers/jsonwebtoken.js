@@ -1,20 +1,45 @@
 const jwt = require("jsonwebtoken");
-const KEY = process.env.ACCESS_TOKEN_SECRET;
-const sign = async (data) => {
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
+
+const signAccessToken = async (data) => {
     return new Promise((resolve, reject) => {
         const options = {
-            expiresIn: "1d",
+            expiresIn: "1m",
         };
-        jwt.sign(data, KEY, options, (err, token) => {
+        jwt.sign(data, ACCESS_TOKEN_SECRET, options, (err, token) => {
             if (err) reject(err);
             resolve(token);
         });
     });
 };
 
-const verify = async (token) => {
+const verifyAccessToken = async (token) => {
     return new Promise((resolve, reject) => {
-        jwt.verify(token, KEY, (err, data) => {
+        jwt.verify(token, ACCESS_TOKEN_SECRET, (err, data) => {
+            if (err) reject(err);
+            resolve(data);
+        });
+    });
+};
+
+
+
+const signRefreshToken = async (data) => {
+    return new Promise((resolve, reject) => {
+        const options = {
+            expiresIn: "1d",
+        };
+        jwt.sign(data, REFRESH_TOKEN_SECRET, options, (err, token) => {
+            if (err) reject(err);
+            resolve(token);
+        });
+    });
+};
+
+const verifyRefreshToken = async (token) => {
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, REFRESH_TOKEN_SECRET, (err, data) => {
             if (err) reject(err);
             resolve(data);
         });
@@ -22,6 +47,8 @@ const verify = async (token) => {
 };
 
 module.exports = {
-    sign,
-    verify,
+    signAccessToken: signAccessToken,
+    verifyAccessToken: verifyAccessToken,
+    signRefreshToken: signRefreshToken,
+    verifyRefreshToken: verifyRefreshToken,
 };

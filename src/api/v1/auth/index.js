@@ -9,12 +9,14 @@ const {
     logout,
     register,
     updateCurrentUser,
+    refreshToken,
 } = require("./controller");
 
 router.get("/me", verifyToken, getCurrentUser);
 router.post("/login", login);
 router.post("/logout", verifyToken, logout);
 router.post("/register", register);
+router.post("/refreshToken", refreshToken);
 router.patch(
     "/me",
     verifyToken,

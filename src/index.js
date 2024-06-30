@@ -69,4 +69,5 @@ const createServer = async () => {
 // listen();
 module.exports = {
     createServer,
+    app,
 };

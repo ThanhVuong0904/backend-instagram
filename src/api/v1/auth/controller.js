@@ -3,7 +3,10 @@ const { ApiResponse } = require("../../../utils/apiResponse");
 
 const login = async (req, res, next) => {
     const result = await service.login(req, res, next);
-    if (result) new ApiResponse(result.data, { token: result.token }).send(res);
+    if (result) new ApiResponse(result.data, {
+        access_token: result.accessToken,
+        refresh_token: result.refreshToken,
+    }).send(res);
 };
 
 const register = async (req, res, next) => {
@@ -26,10 +29,17 @@ const logout = async (req, res, next) => {
     if (result) new ApiResponse(result.data, { token: result.token }).send(res);
 };
 
+
+const refreshToken = async (req, res, next) => {
+    const result = await service.refreshToken(req, res, next);
+    if (result) new ApiResponse(result.data).send(res);
+};
+
 module.exports = {
     login,
     register,
     logout,
     updateCurrentUser,
     getCurrentUser,
+    refreshToken,
 };
