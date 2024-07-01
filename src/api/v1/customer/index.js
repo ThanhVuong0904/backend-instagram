@@ -12,6 +12,6 @@ const verifyToken = require("../../../midlewares/verifyToken");
 router.post("/import", verifyToken, bulkInsert);
 router.post("/push-noti", verifyToken, pushNoti);
 router.post("/list", verifyToken, list);
-router.post("/listV2", listV2);
+// router.post("/listV2", listV2);
 
 module.exports = router;
