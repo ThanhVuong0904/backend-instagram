@@ -1,5 +1,6 @@
 const Validation = require("../../../helpers/validation");
 const User = require("../../../model/User");
+const { ObjectId } = require("mongodb");
 const RevokeToken = require("../../../model/RevokeToken");
 const UserSession = require("../../../model/UserSession");
 const { v4: uuidv4 } = require('uuid');
@@ -197,8 +198,8 @@ const refreshToken = async (req, res, next) => {
 
         // Ensure the session exists
         const userSession = await UserSession.findOne({
-            user_id: payload.userId,
-            refresh_token: refresh_token
+            user_id: ObjectId(payload.userId),
+            session_id: payload.sId
         });
         if (!userSession) {
             throw next(createError.Forbidden());
@@ -219,6 +220,7 @@ const refreshToken = async (req, res, next) => {
 
         // Update the session with the new refresh token
         userSession.refresh_token = newRefreshToken;
+        userSession.access_token = newAccessToken;
         await userSession.save();
 
         return {
