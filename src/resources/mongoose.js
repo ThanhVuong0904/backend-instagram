@@ -7,7 +7,8 @@ module.exports = async () => {
         const URI = configs.mongodb.uri;
         const DB_NAME = configs.mongodb.db_name;
         await connect(URI, {
-            dbName: DB_NAME
+            dbName: DB_NAME,
+            minPoolSize: 10,
         });
 
         connection.on("connected", function () {

@@ -131,7 +131,6 @@ const listV2 = async (req, res, next) => {
     if (error) {
         next(error)
     }
-    console.log(data)
     return res.json({ data, pagination: paginationRes })
 }
 

@@ -2,6 +2,7 @@ const jwt = require("../helpers/jsonwebtoken");
 const createError = require("http-errors");
 const RevokedToken = require('../model/RevokeToken'); // Adjust the path according to your project structure
 const UserSession = require('../model/UserSession'); // Adjust the path according to your project structure
+const { ObjectId } = require("mongodb");
 
 const verifyToken = async (req, res, next) => {
     const authHeader = req.header("Authorization");
@@ -12,7 +13,9 @@ const verifyToken = async (req, res, next) => {
     }
 
     try {
-        const revokedToken = await RevokedToken.findOne({ token });
+        const t = Date.now();
+        const revokedToken = await RevokedToken.findOne({ token }).lean();
+        console.log("revokedToken time elapsed", Date.now() - t, "ms");
         if (revokedToken) {
             throw next(new createError.Unauthorized());
         }
@@ -25,10 +28,10 @@ const verifyToken = async (req, res, next) => {
         }
         // Kiểm tra xem session có tồn tại không
         const userSession = await UserSession.findOne({
-            user_id: req.payload.userId,
+            user_id: ObjectId(req.payload.userId),
             session_id: req.payload.sId,
-        });
-
+        }).lean().select("_id");
+        console.log("userSession time elapsed", Date.now() - t, "ms");
         if (!userSession) {
             throw new createError.Unauthorized('Session does not exist');
         }

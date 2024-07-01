@@ -80,6 +80,7 @@ const list = async ({
     end_contact_date,
 }) => {
     try {
+        let t = new Date();
         const currentDate = new Date();
         // Thiết lập giá trị mặc định cho pagination nếu không được định nghĩa
         const { page_limit = 10, page_current = 1 } = pagination || {};
@@ -288,6 +289,7 @@ const list = async ({
 
         const users = await User.aggregate(aggregationPipeline);
 
+        console.log("time elapsed", Date.now() - t, "ms");
         return {
             data: users,
             pagination: {
@@ -307,106 +309,124 @@ const list = async ({
 }
 
 const listV2 = async ({
-    pagination = {},
+    pagination,
     filter_keyword,
-    filter_provider_code_phone_number = [],
+    filter_provider_code_phone_number,
     filter_has_push_noti,
-    filter_start_contact_date,
-    filter_end_contact_date,
+    filter_start_date,
+    filter_end_date,
+    start_contact_date,
+    end_contact_date,
 }) => {
     try {
+        let t = new Date();
         const currentDate = new Date();
-
-        // Pagination setup
-        const { page_limit = 10, page_current = 1 } = pagination;
+        // Default pagination values
+        const { page_limit = 10, page_current = 1 } = pagination || {};
         const skip = (page_current - 1) * page_limit;
 
-        // Query construction
+        // Utility function to get date range
+        const getDateRange = (startDate, endDate) => {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            return {
+                start: new Date(start.getFullYear(), start.getMonth(), start.getDate(), 0, 0, 0),
+                end: new Date(end.getFullYear(), end.getMonth(), end.getDate(), 23, 59, 59)
+            };
+        };
+
+        // Constructing query
         let query = {};
 
-        if (filter_keyword && filter_keyword !== "") {
+        if (filter_keyword) {
             query["$or"] = [
                 { "full_name": { $regex: filter_keyword, $options: "i" } },
                 { "phone_number": { $regex: filter_keyword, $options: "i" } }
             ];
         }
 
-        if (filter_provider_code_phone_number && filter_provider_code_phone_number.length > 0) {
+        if (filter_provider_code_phone_number?.length) {
             query["provider_code_phone_number"] = { "$in": filter_provider_code_phone_number };
         }
-        let startContactDate
-        let endContactDate
 
-        if (filter_start_contact_date && filter_start_contact_date !== "") {
-            startContactDate = new Date(filter_start_contact_date);
-            endContactDate = filter_end_contact_date ? new Date(filter_end_contact_date) : currentDate;
-
-            query["contact_date"] = {
-                "$gte": new Date(startContactDate.setHours(0, 0, 0)),
-                "$lte": new Date(endContactDate.setHours(23, 59, 59))
-            };
+        if (start_contact_date) {
+            const { start, end } = getDateRange(start_contact_date, end_contact_date || currentDate);
+            query["contact_date"] = { "$gte": start, "$lte": end };
         }
 
-        if (filter_end_contact_date && filter_end_contact_date !== "") {
-            endContactDate = new Date(filter_end_contact_date);
-            startContactDate = filter_start_contact_date ? new Date(filter_start_contact_date) : currentDate;
-
-            query["contact_date"] = {
-                "$gte": new Date(startContactDate.setHours(0, 0, 0)),
-                "$lte": new Date(endContactDate.setHours(23, 59, 59))
-            };
-        }
-
-        if (!startContactDate) {
-            startContactDate = new Date(currentDate.setHours(0, 0, 0));
-        }
-        if (!endContactDate) {
-            endContactDate = new Date(currentDate.setHours(23, 59, 59));
-        }
-
-
-        // Count total records
+        // Counting total records
         const total_record = await User.countDocuments(query);
         const total_page = Math.ceil(total_record / page_limit);
 
-        // Execute aggregation pipeline
-        const users = await User.find(query)
-            .skip(skip)
-            .limit(page_limit);
+        // Filter date range for push notifications
+        const { start: filterStart, end: filterEnd } = getDateRange(filter_start_date || currentDate, filter_end_date || currentDate);
 
-        let mapUser = {} // map id => user
-        let userIds = []
-        users.map(user => {
-            mapUser[user._id] = user
-            userIds.push(user._id)
-        });
-        const messages = await UserMessage.find(
+        const aggregationPipeline = [
+            { $match: query },
             {
-                customer_id: {
-                    $in: userIds,
-                },
-                createdAt: {
-                    $gte: startContactDate,
-                    $lte: endContactDate
+                $lookup: {
+                    from: 'customer_messages',
+                    localField: '_id',
+                    foreignField: 'customer_id',
+                    as: 'messages'
                 }
-            }
-        )
-        let mapMessageCount = {};
-        // Loop through each message and count them per customer_id
-        messages.forEach(message => {
-            const customerId = message.customer_id;
-            if (mapMessageCount[customerId]) {
-                mapMessageCount[customerId] += 1;
-            } else {
-                mapMessageCount[customerId] = 1;
-            }
-        });
+            },
+            {
+                $addFields: {
+                    has_push_noti: {
+                        $anyElementTrue: {
+                            $map: {
+                                input: "$messages",
+                                as: "message",
+                                in: {
+                                    $and: [
+                                        { $gte: ["$$message.createdAt", filterStart] },
+                                        { $lte: ["$$message.createdAt", filterEnd] }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    push_noti_count: {
+                        $size: {
+                            $filter: {
+                                input: "$messages",
+                                as: "message",
+                                cond: {
+                                    $and: [
+                                        { $gte: ["$$message.createdAt", filterStart] },
+                                        { $lte: ["$$message.createdAt", filterEnd] }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                $project: {
+                    _id: 1,
+                    phone_number: 1,
+                    full_name: 1,
+                    provider_code_phone_number: 1,
+                    provider_phone_number: 1,
+                    has_push_noti: { $cond: { if: { $gt: ["$push_noti_count", 0] }, then: true, else: false } },
+                    push_noti_count: 1,
+                    contact_date: 1
+                }
+            },
+            { $skip: skip },
+            { $limit: page_limit }
+        ];
 
-        users.map(user => {
-            user._doc.push_noti_count = mapMessageCount[user._id] || 0
-            user._doc.has_push_noti = user.push_noti_count > 0
-            return user
-        })
+        if (filter_has_push_noti !== undefined) {
+            aggregationPipeline.push({ $match: { has_push_noti: filter_has_push_noti } });
+        }
+
+        const users = await User.aggregate(aggregationPipeline);
+
+        console.log("time elapsed", Date.now() - t, "ms");
+
         return {
             data: users,
             pagination: { page_current, page_limit, total_page, total_record },
