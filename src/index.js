@@ -22,6 +22,8 @@ const limiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minutes
     max: 100, // Giới hạn mỗi IP chỉ được gọi API 100 lần trong 1 phút
     message: "Too many requests from this IP, please try again later",
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 app.use(limiter); // Áp dụng rate limit cho toàn bộ ứng dụng
 app.use(morgan("tiny"));
