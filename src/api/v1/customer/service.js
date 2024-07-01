@@ -306,9 +306,121 @@ const list = async ({
     }
 }
 
+const listV2 = async ({
+    pagination = {},
+    filter_keyword,
+    filter_provider_code_phone_number = [],
+    filter_has_push_noti,
+    filter_start_contact_date,
+    filter_end_contact_date,
+}) => {
+    try {
+        const currentDate = new Date();
+
+        // Pagination setup
+        const { page_limit = 10, page_current = 1 } = pagination;
+        const skip = (page_current - 1) * page_limit;
+
+        // Query construction
+        let query = {};
+
+        if (filter_keyword && filter_keyword !== "") {
+            query["$or"] = [
+                { "full_name": { $regex: filter_keyword, $options: "i" } },
+                { "phone_number": { $regex: filter_keyword, $options: "i" } }
+            ];
+        }
+
+        if (filter_provider_code_phone_number && filter_provider_code_phone_number.length > 0) {
+            query["provider_code_phone_number"] = { "$in": filter_provider_code_phone_number };
+        }
+        let startContactDate
+        let endContactDate
+
+        if (filter_start_contact_date && filter_start_contact_date !== "") {
+            startContactDate = new Date(filter_start_contact_date);
+            endContactDate = filter_end_contact_date ? new Date(filter_end_contact_date) : currentDate;
+
+            query["contact_date"] = {
+                "$gte": new Date(startContactDate.setHours(0, 0, 0)),
+                "$lte": new Date(endContactDate.setHours(23, 59, 59))
+            };
+        }
+
+        if (filter_end_contact_date && filter_end_contact_date !== "") {
+            endContactDate = new Date(filter_end_contact_date);
+            startContactDate = filter_start_contact_date ? new Date(filter_start_contact_date) : currentDate;
+
+            query["contact_date"] = {
+                "$gte": new Date(startContactDate.setHours(0, 0, 0)),
+                "$lte": new Date(endContactDate.setHours(23, 59, 59))
+            };
+        }
+
+        if (!startContactDate) {
+            startContactDate = new Date(currentDate.setHours(0, 0, 0));
+        }
+        if (!endContactDate) {
+            endContactDate = new Date(currentDate.setHours(23, 59, 59));
+        }
+
+
+        // Count total records
+        const total_record = await User.countDocuments(query);
+        const total_page = Math.ceil(total_record / page_limit);
+
+        // Execute aggregation pipeline
+        const users = await User.find(query)
+            .skip(skip)
+            .limit(page_limit);
+
+        let mapUser = {} // map id => user
+        let userIds = []
+        users.map(user => {
+            mapUser[user._id] = user
+            userIds.push(user._id)
+        });
+        const messages = await UserMessage.find(
+            {
+                customer_id: {
+                    $in: userIds,
+                },
+                createdAt: {
+                    $gte: startContactDate,
+                    $lte: endContactDate
+                }
+            }
+        )
+        let mapMessageCount = {};
+        // Loop through each message and count them per customer_id
+        messages.forEach(message => {
+            const customerId = message.customer_id;
+            if (mapMessageCount[customerId]) {
+                mapMessageCount[customerId] += 1;
+            } else {
+                mapMessageCount[customerId] = 1;
+            }
+        });
+
+        users.map(user => {
+            user._doc.push_noti_count = mapMessageCount[user._id] || 0
+            user._doc.has_push_noti = user.push_noti_count > 0
+            return user
+        })
+        return {
+            data: users,
+            pagination: { page_current, page_limit, total_page, total_record },
+            error: null
+        };
+    } catch (error) {
+        console.log("list err", error);
+        return { error };
+    }
+};
 
 module.exports = {
     bulkInsert,
     pushNoti,
     list,
+    listV2,
 };

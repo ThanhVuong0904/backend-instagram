@@ -8,4 +8,5 @@ const revokedTokenSchema = new Schema({
 
 const RevokedToken = mongoose.model('RevokedToken', revokedTokenSchema);
 
+revokedTokenSchema.index({ token: 1, createdAt: 1 })
 module.exports = RevokedToken;

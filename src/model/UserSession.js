@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt");
-
 
 const UserSession = new Schema(
     {
@@ -15,4 +13,5 @@ const UserSession = new Schema(
         timestamps: true,
     }
 );
+UserSession.index({ user_id: 1, session_id: 1 })
 module.exports = mongoose.model("UserSession", UserSession);

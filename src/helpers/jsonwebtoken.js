@@ -5,7 +5,7 @@ const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
 const signAccessToken = async (data) => {
     return new Promise((resolve, reject) => {
         const options = {
-            expiresIn: "1m",
+            expiresIn: "1d",
         };
         jwt.sign(data, ACCESS_TOKEN_SECRET, options, (err, token) => {
             if (err) reject(err);
@@ -28,7 +28,7 @@ const verifyAccessToken = async (token) => {
 const signRefreshToken = async (data) => {
     return new Promise((resolve, reject) => {
         const options = {
-            expiresIn: "1d",
+            expiresIn: "365d",
         };
         jwt.sign(data, REFRESH_TOKEN_SECRET, options, (err, token) => {
             if (err) reject(err);

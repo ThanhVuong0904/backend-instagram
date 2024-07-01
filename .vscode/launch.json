@@ -7,18 +7,9 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug Jest Tests",
-            "program": "${workspaceFolder}/node_modules/.bin/jest",
-            "args": ["--runInBand"],
-            "autoAttachChildProcesses": true,
-            "runtimeExecutable": null,
-            "internalConsoleOptions": "openOnSessionStart",
-            "env": {
-                "NODE_ENV": "test"
-            },
-            "console": "integratedTerminal",
-            "runtimeArgs": ["--inspect-brk"],
-            "protocol": "inspector"
+            "name": "Launch Program",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${workspaceFolder}/index.js"
         }
     ]
 }

@@ -109,8 +109,36 @@ const list = async (req, res, next) => {
     return res.json({ data, pagination: paginationRes })
 }
 
+
+const listV2 = async (req, res, next) => {
+    const {
+        pagination,
+        filter_keyword,
+        filter_provider_code_phone_number,
+        filter_has_push_noti,
+        filter_start_contact_date,
+        filter_end_contact_date,
+    } = req.body
+    const { error, data, pagination: paginationRes } = await service.listV2(
+        {
+            pagination,
+            filter_keyword,
+            filter_provider_code_phone_number,
+            filter_has_push_noti,
+            filter_start_contact_date,
+            filter_end_contact_date,
+        })
+    if (error) {
+        next(error)
+    }
+    console.log(data)
+    return res.json({ data, pagination: paginationRes })
+}
+
 module.exports = {
     bulkInsert,
     pushNoti,
-    list
+    list,
+    listV2,
+
 };

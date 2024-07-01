@@ -18,5 +18,6 @@ const Customer = new Schema(
 );
 
 Customer.index({ provider_code_phone_number: 1, createdAt: 1 })
+Customer.index({ contact_date: 1 })
 
 module.exports = mongoose.model("Customer", Customer);
