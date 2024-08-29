@@ -75,7 +75,7 @@ const login = async (req, res, next) => {
             device_info: deviceInfo,
             access_token: accessToken,
             refresh_token: refreshToken,
-            expires_at: new Date(Date.now() + 172800000); // 2d
+            expires_at: new Date(Date.now() + 172800000) // 2d
         });
 
         return {
