@@ -5,3 +5,5 @@
 .env
 .env.development
 .env.production
+
+/logs

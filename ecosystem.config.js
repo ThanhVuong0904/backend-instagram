@@ -6,7 +6,7 @@ const DEFAULT_OPTIONS = {
   watch: false,
   min_uptime: 10000,
   max_restarts: 5,
-  max_memory_restart: '3G',
+  max_memory_restart: '6G',
 };
 
 module.exports = {

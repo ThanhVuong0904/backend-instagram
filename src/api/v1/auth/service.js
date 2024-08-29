@@ -75,6 +75,7 @@ const login = async (req, res, next) => {
             device_info: deviceInfo,
             access_token: accessToken,
             refresh_token: refreshToken,
+            expires_at: new Date(Date.now() + 172800000); // 2d
         });
 
         return {
@@ -168,7 +169,8 @@ const logout = async (req, res, next) => {
         }
 
         // Revoke both the access token and refresh token
-        await RevokedToken.create({ token: userSession.access_token });
+        let ttl2d = new Date(Date.now() + 172800000); // 2d
+        await RevokedToken.create({ token: userSession.access_token, expires_at: ttl2d });
         await RevokedToken.create({ token: userSession.refresh_token });
 
         // Delete the user session
@@ -212,6 +214,7 @@ const refreshToken = async (req, res, next) => {
             sId: payload.sId
         });
 
+
         const newRefreshToken = await jwt.signRefreshToken({
             userId: payload.userId,
             email: payload.email,
@@ -221,6 +224,7 @@ const refreshToken = async (req, res, next) => {
         // Update the session with the new refresh token
         userSession.refresh_token = newRefreshToken;
         userSession.access_token = newAccessToken;
+        userSession.expires_at = new Date(Date.now() + 172800000); // 2d
         await userSession.save();
 
         return {
